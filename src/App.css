@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+  
+}
+body{
+  overflow-x: hidden;
+}
+header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  background: #333;
+  top: 0;
+  left: 0;
+  padding: 2rem 3rem;
+  z-index: 10;
+}
+
+header nav ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+header nav ul li {
+  margin: 2rem .9rem;
+  color: #fff;
+}
+
+header nav ul li a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+header nav ul li a:hover {
+  background: #E6022D;
+  border-radius: 4px;
+}
+
+header .fa-bars {
+  font-size: 4rem;
+  color: #E6022D;
+  cursor: pointer;
+  margin: 0 2rem;
+  z-index: 20;
+  display: none;
+}
+
+header .logo {
+  margin: 0 2.5rem;
+}
+
+header .logo a {
+  text-decoration: none;
+}
+
+header .logo a h1 {
+  font-size: 3rem;
+  color: #fff;
+}
+
+header .logo a h1 span {
+  color: #E6022D;
+}
+
+.navbar-nav a:hover{
+  background: darkred;
+  border-radius: 4px;
+}
+
+.navbar-brand span{
+  color: darkred;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
