@@ -1,0 +1,11 @@
+.conatainer-cards{
+    display: inline-block;
+    border: 3px solid #333;
+    background: darkred;
+    color: #fff;
+    margin: 25px;
+    padding: 2rem;
+    border-radius: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
