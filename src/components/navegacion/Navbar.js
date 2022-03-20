@@ -1,12 +1,13 @@
 import React from 'react'
 import './Navbar.css'
 import CartWidget from './CartWidget/CartWidget';
+import Count from '../ProductosLista/Count';
+
 
 
 const Navbar = () => {
   return (
     <div className="App">
-
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#"><h1><span>Amazon</span> Fitness</h1></a>
@@ -23,6 +24,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
+        <Count/>
     </div>
   )
 }

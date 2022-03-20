@@ -4,6 +4,7 @@ import Navbar from './components/navegacion/Navbar';
 import ProductosLista from './components/ProductosLista/ProductosLista';
 import { Children } from 'react';
 import CartWidget from './components/navegacion/CartWidget/CartWidget'
+import Count from './components/ProductosLista/Count';
 
 function App() {
 
@@ -12,9 +13,6 @@ function App() {
     <div className='App'>
       <Navbar/>
       <ProductosLista/>
-      <ProductosLista/>
-      
-
     </div>
   );
 }

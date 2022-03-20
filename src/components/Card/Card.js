@@ -7,7 +7,7 @@ export default function Card(props){
             {console.log("console dentro de render")}
             <h2>{props.title}</h2>
             <p>Precio : S/. {props.price}</p>
-            <p>Talle : {props.talle}</p>
+            <p>Talla : {props.talle}</p>
             <button> Comprar </button>
         </div>
       )
