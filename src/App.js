@@ -1,18 +1,36 @@
 import './App.css';
-import {BrowserRouter as Router, Swicht, Route} from 'react-router-dom';
-import Navbar from './components/navegacion/Navbar';
-import ProductosLista from './components/ProductosLista/ProductosLista';
-import { Children } from 'react';
-import CartWidget from './components/navegacion/CartWidget/CartWidget'
-import Count from './components/ProductosLista/Count';
+import React, {useState, useEffect} from 'react'
+
+import NavBar from './components/Navbar/NavbarClass'
+//import NavBarClass from './components/NavBarClass'
+import ListProducts from './components/ListaProductos/ListaProductos';
+import ModalCustom from './components/Modal/Modal'
+import Card from './components/Card/Card';
+
 
 function App() {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = (value) => {
+      setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+
+
 
   return (
+    //JSX
 
-    <div className='App'>
-      <Navbar/>
-      <ProductosLista/>
+    <div className="App">
+     <NavBar />
+      {/* <NavBarClass /> */}
+        <Container className='container-general'>
+          <ListProducts />
+        </Container>
     </div>
   );
 }
