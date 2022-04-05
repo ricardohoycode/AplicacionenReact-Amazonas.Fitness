@@ -1,12 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App h2 {
-  color: #fff;
-}
-.App p{
-  color: #fff;
+  background: #ddd;
 }
 .Card{
   display: block;
@@ -14,4 +8,3 @@
 .App h1{
   color: #fff;
 }
-

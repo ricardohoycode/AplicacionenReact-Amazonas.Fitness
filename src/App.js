@@ -1,11 +1,21 @@
 import './App.css';
 import React, {useState, useEffect} from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import NavBar from './components/Navbar/NavbarClass'
-//import NavBarClass from './components/NavBarClass'
-import ListProducts from './components/ListaProductos/ListaProductos';
-import ModalCustom from './components/Modal/Modal'
+//Components
+import NavBar from './components/Navbar/Navbar';
 import Card from './components/Card/Card';
+import ListProducts from './components/ListProducts/ListProducts';
+import Container  from '@mui/material/Container';
+import ModalCustom from './components/Modal/Modal';
+//Pages
+import HomePage from './pages/HomePages'
+import ProductosPages from './pages/ProductosPages'
+import ZapatillasPages from './pages/ZapatillasPages'
+import AccesoriosPages from './pages/AccesoriosPages'
+
+//services
+//import {getUser} from './services/users.service'
 
 
 function App() {
@@ -19,20 +29,22 @@ function App() {
     setOpen(true)
   }
 
-
-
-
   return (
-    //JSX
 
     <div className="App">
-     <NavBar />
-      {/* <NavBarClass /> */}
-        <Container className='container-general'>
-          <ListProducts />
-        </Container>
+    <BrowserRouter>
+      <NavBar />
+      <Routes>
+
+        <Route path="/" element={<HomePage />}/>
+        <Route path="/zapatillas" element={<ZapatillasPages />}/>
+        <Route path="/productos" element={<ProductosPages />}/>
+        <Route path="/accesorios" element={<AccesoriosPages />}/>
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+

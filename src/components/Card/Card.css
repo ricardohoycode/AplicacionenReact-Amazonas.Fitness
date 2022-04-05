@@ -1,5 +1,17 @@
+div .card-item{
+    width: 300px;
+    border: 2px solid #ababab;
+    display: inline-block;
+    margin: 0px 10px 10px 5px;
+    box-shadow: 1px 1px 5px #0000002b;
+    text-align: center;
+    background: whitesmoke;
+}
+
 .card-item > img {
-    width: 100%;
+    width: 295px;
+    height: 400px;
+    object-fit: cover;
 }
 
 .container-card-data {
@@ -8,19 +20,16 @@
     padding: 10px;
 }
 
-.container-card-data h2 {
-    font-size: 19px;
-    letter-spacing: 2px;
+.container-card-data .Title-card {
+    font-size: 27px;
+    letter-spacing: 1.5px;
     margin: 0px;
     font-weight: 400;
     margin-bottom: 10px;
 }
 
 .container-card-data p {
-    font-size: 14px;
-    font-weight: 300;
+    font-size: 17px;
+    font-weight: 400;
 }
 
-.container-cards .card-item:nth-of-type(1) {
-    margin-left: 0px;
-}

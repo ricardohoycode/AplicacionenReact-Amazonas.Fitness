@@ -9,9 +9,9 @@ const ItemCount = ({stock}) => {
     }
     return(
         <>
-            <button>-</button>
+            <button> - </button>
             <p>{count}</p>
-            <button onClick={onAdd}>+</button>
+            <button onClick={onAdd}> + </button>
         </>
     )
 }

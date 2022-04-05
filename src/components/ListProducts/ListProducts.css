@@ -1,0 +1,17 @@
+div .container-cards{
+    margin: 0 auto;
+    position: relative;
+    width: 110%;
+}
+
+.container-cards h2{
+    color: black;
+    font-size: 25px;
+}
+
+.container-cards span{
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
