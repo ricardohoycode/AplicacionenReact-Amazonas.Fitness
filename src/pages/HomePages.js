@@ -4,7 +4,7 @@ import Container from '@mui/material/Container';
 
 const HomePage = () => {
     return(
-        <Container className='container-general'> 
+        <Container className='container-general' > 
             <ListProducts />
         </Container>
     )

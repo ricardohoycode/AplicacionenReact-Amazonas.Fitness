@@ -5,16 +5,16 @@
     box-sizing: border-box;
     padding: 10px 5px;
     background: #222;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 .main-header{
     box-shadow: 1px 5px 15px #81818159;
 }
-.main-header .navbar .custom-btn {
+.main-header .navbar li button a{
     text-decoration: none;
     color: white;
 }
-.container-logo{
+.container-logo {
     background: darkred;
     color: #ddd;
     font-size: 45px;
@@ -42,9 +42,14 @@ ul.navbar {
 .navbar .custom-btn{
     margin: 2px 5px;
     border: 2px solid #333;
+    list-style: none;
+    text-decoration: none;
+
 }
-.navbar .custom-btn:hover{
-background: darkred;
+.navbar .custom-btn:hover a{
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .Carrito{
