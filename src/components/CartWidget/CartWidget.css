@@ -1,0 +1,11 @@
+
+.fa-shopping-cart{
+    display:inline-flex;
+    background: #333;
+    border-radius: 50px;
+}
+
+.fa-shopping-cart img{
+    width: 30px;
+    margin: 10px;
+}

@@ -1,0 +1,46 @@
+
+.footer {
+    background-color: #353535;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.footer--company {
+    margin-left: 100px;
+    width: 20vw;
+    font-size: 25px;
+}
+
+.footer--blank {
+    width: 50vw;
+}
+
+.footer--list {
+    width: 15vw;
+}
+
+.list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer--social {
+    width: 5vw;
+    font-size: 4vw;
+}
+
+a:hover {
+    color: limegreen;
+    text-transform: uppercase;
+}
+
+a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
