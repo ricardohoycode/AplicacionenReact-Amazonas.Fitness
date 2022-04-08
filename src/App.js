@@ -1,44 +1,39 @@
 import './App.css';
-import {useState, useEffect} from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-//Components
-import NavBar from './components/Navbar/Navbar';
-import ListProducts from './components/ListProducts/ListProducts';
-import Button from '@mui/material/Button';
-import Container  from '@mui/material/Container';
-import ModalCustom from './components/Modal/Modal';
-//import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-//Pages
-import HomePage from './pages/HomePages'
-import ProductosPages from './pages/ProductosPages'
-import ZapatillasPages from './pages/ZapatillasPages'
-import AccesoriosPages from './pages/AccesoriosPages'
-import NotFoundPages from './pages/NotFoundPages'
-import DetailPages from './pages/DetailPages';
-
-//services
-//import {getUser} from './services/users.service'
-
+import Footer from './components/Footer/Footer';
+import NavBar from './components/Navbar/Navbar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import NotFound from './pages/NotFound';
+import ContactUs from './pages/Contact';
+import History from './pages/History'
+import JoinUs from './pages/JoinUs'
+import Cart from './pages/Cart';
 
 function App() {
 
   return (
-
-    <div className="App">
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />}/>
-        <Route path="/zapatillas" element={<ZapatillasPages />}/>
-        <Route path="/productos" element={<ProductosPages />}/>
-        <Route path="/accesorios" element={<AccesoriosPages />}/>
-        <Route path="/:category/" element={<HomePage />}/>
-        <Route path="/:category/:id" element={<DetailPages />}/>
-        <Route path="*" element={<NotFoundPages />}/>
-      </Routes>
+      <div className='content'>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:category" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/contactanos" element={<ContactUs />} />
+          <Route path="/historia" element={<History />} />
+          <Route path="/unete" element={<JoinUs />} />
+          <Route path="/*" element={<NotFound />} />
+          <Route path="/cart" element={<Cart />} />
+          {/* <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} /> */}
+        </Routes>
+      </div>
+      <Footer />
     </BrowserRouter>
-    </div>
+
   );
 }
 

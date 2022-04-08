@@ -1,51 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import Button from '@mui/material/Button';
-import './Navbar.css'
+import './Navbar.css';
+import { NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
+import { loadCategories } from '../../services/products_service';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-function NavBar(props) {
-    const pages = [
-        {
-            title:'Home',
-            url: '/'
-        },
-        {
-            title: 'Productos',
-            url: '/productos'
-        }, 
-        {
-            title: 'Accesorios',
-            url: '/accesorios'
-        },
-        {
-            title: 'Zapatillas',
-            url: '/zapatillas'
-        }]
-    return(
-        //JSX
-        <header className='main-header'>
+const NavBar = () => {
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        (async () => {
+            const categories = await loadCategories();
+            setCategories(categories);
+        })();
+    }, []);
 
-            <div className='container-logo'>Amazona Fitness</div>
-            {/*<img src="icono-amazona.jpg" className="img-header"/>*/}
-            <ul className='navbar'>
-                <li><Button className="custom-btn" variant="contained"><Link to={'/'}>Home</Link></Button></li>
-                <li><Button className="custom-btn" variant="contained"><Link to={'/productos'}>Productos</Link></Button></li>
-                <li><Button className="custom-btn" variant="contained"><Link to={'/accesorios'}>Accesorios</Link></Button></li>
-                <li><Button className="custom-btn" variant="contained"><Link to={'/zapatillas'}>Zapatillas</Link></Button></li>
-                {/*pages.map((page) => {
-                    return(
-                        <li>
-                            <Button className="custom-btn" variant="contained">
-                                <Link to={page.url}>{page.title}</Link>
-                            </Button>
-                        </li>
-                    )
-                })*/}
+    return (
+        <nav className='main-header'>
+            <div className="logoWithIcons">
+                <div className="empty">Amazona Fitness</div>
+                <div className="logo">
+                    <Link to={"/"}>
+                        <img src="/icono-amazona.jpg" alt="logo" height="100px" />
+                    </Link>
+                </div>
+                <div className="icons">
+                    <a href="/dec.html"><i className="fa-regular fa-user"></i>Carrito</a>
+                    <CartWidget />
+                </div>
+            </div>
+            <ul className="menu">
+                {categories.map(category =>
+                    <li className="menuLi" key={category.id}>
+                        <NavLink to={`/category/${category.id}`}
+                            activeClassName="active"
+                        >
+
+                            {category.name}</NavLink>
+                    </li>
+                )}
             </ul>
-            <CartWidget />
-        </header>
-    )
+        </nav>
+    );
 }
 
-export default NavBar
+export default NavBar;

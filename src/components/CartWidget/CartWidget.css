@@ -1,11 +1,10 @@
-.Carrito{
-    margin: 5px ;
+.fa-shopping-cart{
     display:inline-flex;
-    float:inline-start;
-    color: #ddd;
+    background: #333;
+    border-radius: 50px;
 }
 
-.Carrito img{
+.fa-shopping-cart img{
     width: 30px;
-    margin: 15px;
+    margin: 10px;
 }
