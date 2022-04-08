@@ -5,6 +5,7 @@ import { loadCategories } from '../../services/products_service';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const NavBar = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {

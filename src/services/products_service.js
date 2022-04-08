@@ -28,7 +28,7 @@ const productItems = [
     },
     {
         id: 1,
-        title: "Bibiris",
+        title: "Bibidis",
         price: 500,
         pictureUrl: "/bibidi.jpg",
         category: 1,

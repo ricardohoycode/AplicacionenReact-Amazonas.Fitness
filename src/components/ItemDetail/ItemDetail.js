@@ -47,7 +47,6 @@ const ItemDetail = ({ detail }) => {
     }, [setOpen])
 
     return (
-
         <Grid
             container
             justifyContent="space-around"

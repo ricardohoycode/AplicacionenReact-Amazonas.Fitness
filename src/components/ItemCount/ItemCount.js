@@ -12,7 +12,6 @@ const ItemCount = ({ count, handleAdd, handleRemove, handleOpen }) => {
     useEffect(() => {
         count === 0 ? setEnableCartButton(false) : setEnableCartButton(true);
     }, [count])
-
     return (
         <>
             <CardActions>

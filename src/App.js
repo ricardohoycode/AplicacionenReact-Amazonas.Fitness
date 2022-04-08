@@ -13,6 +13,7 @@ import Cart from './pages/Cart';
 function App() {
 
   return (
+    
     <BrowserRouter>
       <div className='content'>
         <NavBar />

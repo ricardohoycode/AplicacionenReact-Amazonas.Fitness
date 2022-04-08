@@ -32,7 +32,6 @@ function Contact() {
         console.log(value);
     }
 
-
     return (
         <Container>
             <h1>Contáctanos</h1>

@@ -17,7 +17,6 @@ const ItemDetailContainer = () => {
             </Box>
         )
     }
-
     const detailBox = () => {
         return (
             <>

@@ -16,7 +16,6 @@ const ItemListContainer = () => {
     return (
         <ItemList products={products} />
     )
-
 }
 
 export default ItemListContainer;

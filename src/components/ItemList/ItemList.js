@@ -15,7 +15,6 @@ const ItemList = ({ products }) => {
                 </Grid>)}
         </Grid>
     )
-
 }
 
 export default ItemList

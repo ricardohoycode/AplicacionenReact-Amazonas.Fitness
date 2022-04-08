@@ -2,9 +2,11 @@
   text-align: center;
   background: #ddd;
 }
+
 .Card{
   display: block;
 }
+
 .App h1{
   color: #fff;
 }
