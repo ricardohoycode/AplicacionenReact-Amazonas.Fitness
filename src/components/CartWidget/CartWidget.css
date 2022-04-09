@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .fa-shopping-cart{
     display:inline-flex;
@@ -8,4 +9,16 @@
 .fa-shopping-cart img{
     width: 30px;
     margin: 10px;
+=======
+
+.fa-shopping-cart{
+    display:inline-flex;
+    background: #333;
+    border-radius: 50px;
+}
+
+.fa-shopping-cart img{
+    width: 30px;
+    margin: 10px;
+>>>>>>> 7643882100bc5ec78750b8ad4c28e926ff1b6964
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Container from "@mui/material/Container";
 
 function NotFound() {
@@ -9,4 +10,17 @@ function NotFound() {
 }
 
 
+=======
+import Container from "@mui/material/Container";
+
+function NotFound() {
+    return (
+        <Container>
+            <h1>Página no encontrada</h1>
+        </Container>
+    )
+}
+
+
+>>>>>>> 7643882100bc5ec78750b8ad4c28e926ff1b6964
 export default NotFound;
