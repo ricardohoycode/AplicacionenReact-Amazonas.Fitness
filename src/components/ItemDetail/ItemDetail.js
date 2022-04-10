@@ -5,22 +5,27 @@ import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount'
 import { Grid } from '@mui/material';
 //import './ItemDetail.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
+import CartContext from '../../context/CartContext'
 
 const ItemDetail = ({ detail }) => {
-    const stock = detail.stock;
-    const [count, setCount] = useState(1);
+    const { addItem, cart } = useContext(CartContext);
     const [open, setOpen] = useState(false);
     const [showItemCount, setShowItemCount] = useState(true);
+    const [count, setCount] = useState(1);
 
-    const handleOpen = () => {
+    const handleOpen = (e, count) => {
+        e.stopPropagation();
         setOpen(true);
+        setCount(count);
+        addItem({ ...detail, quantity: count });
+
     }
 
     const handleClose = () => {
@@ -28,17 +33,9 @@ const ItemDetail = ({ detail }) => {
         setShowItemCount(false);
     }
 
-    const handleAdd = () => {
-        count < stock ? setCount(count + 1) : setCount(stock);
-    }
-
-    const handleRemove = () => {
-        count > 0 ? setCount(count - 1) : setCount(0);
-    }
-
     const showItemCountSnippet = () => {
         if (showItemCount) {
-            return <ItemCount count={count} handleAdd={handleAdd} handleRemove={handleRemove} handleOpen={handleOpen} />
+            return <ItemCount stock={detail.stock} handleOpen={handleOpen} />
         }
     }
 
@@ -47,6 +44,7 @@ const ItemDetail = ({ detail }) => {
     }, [setOpen])
 
     return (
+
         <Grid
             container
             justifyContent="space-around"

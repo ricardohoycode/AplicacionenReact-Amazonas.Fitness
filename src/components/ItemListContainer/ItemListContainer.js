@@ -3,10 +3,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { loadProduct } from '../../services/products_service';
 import { useParams } from 'react-router-dom';
 
-import CartContext from '../../context/CartContext';
 
 const ItemListContainer = () => {
-    const { cartProducts, addProductToCart } = useContext(CartContext)
     const [products, setProducts] = useState([]);
     const { category } = useParams();
     useEffect(() => {
