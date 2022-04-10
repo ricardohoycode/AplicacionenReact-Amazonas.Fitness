@@ -7,8 +7,8 @@ const CartWidget = () => {
         <>
             <Link to="/cart">
                 <i className="fas fa-shopping-cart"><img src='/icon-carrito.svg'></img></i>
+                <espan>4</espan>
             </Link>
-            <span>4</span>
         </>
     )
 

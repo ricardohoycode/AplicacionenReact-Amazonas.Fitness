@@ -2,11 +2,14 @@ import './Navbar.css';
 import { NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget';
 import { loadCategories } from '../../services/products_service';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import ThemeContext from '../../context/ThemeContext';
+import ThemeSwitch from './ThemeSwitch';
 
 
 const NavBar = () => {
+    const{ ligthTheme, handleTheme } = useContext(ThemeContext)
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         (async () => {
@@ -25,7 +28,8 @@ const NavBar = () => {
                     </Link>
                 </div>
                 <div className="icons">
-                    <a href="/dec.html"><i className="fa-regular fa-user"></i>Carrito</a>
+                    <a href="/dec.html"><i className="fa-regular fa-user"></i></a>
+                    <ThemeSwitch />
                     <CartWidget />
                 </div>
             </div>

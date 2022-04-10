@@ -10,3 +10,27 @@
 .App h1{
   color: #fff;
 }
+
+
+
+/*Light Mode Styles*/
+.main-header.light-mode {
+  background: rgb(72, 11, 229);
+}
+
+.main-header.light-mode ul.navbar * {
+  color: rgb(235, 19, 19) !important;
+  box-shadow: none;
+}
+
+.container.light-mode .card-item * {
+  color: white;
+}
+
+.container.light-mode .card-item {
+  background: black;
+}
+
+.main-header.light-mode .cart-button * {
+  color: black;
+}
