@@ -1,59 +1,43 @@
-import { createContext } from 'react';
-import { useState } from 'react';
+import { createContext, useState } from "react";
 
 const CartContext = createContext();
 
-const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState([]);
-    const [cartLenght, setCartLenght] = useState(0);
+const CartProvider = ({children}) => {
+    const [cartProducts, setCartProducts] = useState([])
 
-    const addItem = (item) => {
-        isInCart(item) ? updateItem(item) : setCart(cart => [...cart, item]);
-        setCartLenght(cart.reduce((acc, item) => acc + item.quantity, 0));
-        console.log(cart);
+    const addProductToCart = (product) => {
+        let exist = cartProducts.find(cartProduct => cartProduct.id === product.id)
+        !exist && setCartProducts(cartProducts => [...cartProducts, product])
     }
 
-    const updateItem = (item) => {
-        const result = cart.map((cartItem) => {
-            if (cartItem.id === item.id) {
-                return {
-                    ...cartItem,
-                    quantity: cartItem.quantity + item.quantity,
-                }
-            }
-            return cartItem;
-        });
-        setCart(result);
+    const calculeTotalPrice = () => {
+        let total = 0
+
+        cartProducts.map( (cartProduct) => {
+           total = cartProduct.price + total
+        })
+
+        return total
     }
 
-    const removeItem = (item) => {
-        setCart(cart.filter((i) => i.id !== item.id));
-    }
-
-    const clear = () => {
-        setCart([]);
-    }
-
-    const isInCart = (item) => {
-        return !cart.length ? false : cart.some((i) => i.id === item.id);
+    const deleteProduct = (product) => {
+        setCartProducts(cartProducts.filter( cartProduct => cartProduct.id !== product.id))
     }
 
     const data = {
-        cart,
-        addItem,
-        removeItem,
-        clear,
-        isInCart,
-        cartLenght,
+        cartProducts,
+        addProductToCart,
+        calculeTotalPrice,
+        deleteProduct
     }
 
-    return (
+    return(
         <CartContext.Provider value={data}>
             {children}
         </CartContext.Provider>
     )
 }
 
-export { CartProvider };
-export default CartContext;
+export { CartProvider }
+export default CartContext

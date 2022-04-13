@@ -1,10 +1,11 @@
 import './App.css';
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import Footer from './components/Footer/Footer';
 import NavBar from './components/Navbar/Navbar'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-
 //import { ThemeProvider } from './context/ThemeContext';
 import { CartProvider } from './context/CartContext';
 

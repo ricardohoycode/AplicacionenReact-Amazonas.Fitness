@@ -10,6 +10,8 @@ import CartContext from '../context/CartContext';
 import { useContext } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
+import { doc, getDoc } from "firebase/firestore";
+import db from '../firebase'
 
 function Cart() {
     const { cart, removeItem } = useContext(CartContext);
