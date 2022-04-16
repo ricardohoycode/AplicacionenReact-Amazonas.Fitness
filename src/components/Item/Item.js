@@ -7,8 +7,15 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Item = ({ product }) => {
+    const navigate = useNavigate();
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        navigate(`/cart`);
+    }
     return (
 
         <Card sx={{ maxWidth: 345 }}>

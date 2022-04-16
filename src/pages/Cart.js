@@ -7,23 +7,78 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import CartContext from '../context/CartContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Button from '@mui/material/Button';
-import { doc, getDoc } from "firebase/firestore";
+import ModalCustom from '../components/Modal/Modal';
 import db from '../firebase'
+import { addDoc, collection } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
-function Cart() {
-    const { cart, removeItem } = useContext(CartContext);
-    const calculateTotalItem = (item) => {
-        return item.price * item.quantity;
+const Cart = () => {
+    const { cartProducts, deleteProduct, totalPrice } = useContext(CartContext)
+    const [openModal, setOpenModal] = useState(false)
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',  
+        email: '',
+    })
+    const [order, setOrder] = useState(
+        {
+            buyer : formData,
+            items: cartProducts.map( (cartProduct)=> {
+                return {
+                    id: cartProduct.id,
+                    title: cartProduct.title,
+                    price: cartProduct.price
+                }
+            }),
+            total: totalPrice
+        }
+    )
+    const [successOrder, setSuccessOrder] = useState()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        let prevOrder = {...order,
+            buyer: formData
+        }
+        setOrder({...order,
+            buyer: formData})
+        pushOrder(prevOrder)
     }
+
+    const pushOrder = async (prevOrder) => {
+        const orderFirebase = collection(db, 'ordenes')
+        const orderDoc = await addDoc(orderFirebase, prevOrder)
+        console.log("orden generada: ", orderDoc.id)
+        setSuccessOrder(orderDoc.id)
+        
+    }
+
+    const handleChange = (e) => {
+        const {value, name} = e.target
+
+        setFormData({
+            ...formData,
+            [name]: value
+        })
+    }
+
+        const navigate = useNavigate()
+        const { cart, removeItem } = useContext(CartContext);
+        const calculateTotalItem = (item) => {
+            return item.price * item.quantity;
+        }
+        const goBack = () => {
+            navigate('/');
+        }
 
     return (
 
         <Container>
             <h1>Carrito de compra</h1>
-            {cart.length ? (
+            {Cart.length ? (
                 <TableContainer component={Paper}>
                     <Table aria-label="simple table">
                         <TableHead>
@@ -36,7 +91,7 @@ function Cart() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {cart.map((item) => (
+                            {Cart.map((item) => (
                                 <TableRow key={item.id}>
                                     <TableCell component="th" scope="row">{item.title}</TableCell>
                                     <TableCell align="center">${item.price}</TableCell>
