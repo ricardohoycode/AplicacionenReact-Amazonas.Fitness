@@ -1,20 +1,49 @@
-import Item from '../Item/Item';
-import Grid from '@mui/material/Grid';
-const ItemList = ({ products }) => {
-    return (
-        <Grid
-            container
-            direction="row"
-            justifyContent="space-around"
-            alignItems="center"
-            spacing={6}>
+import Item from './Item'
 
-            {products.map(product =>
-                <Grid item key={product.id} xs={6} sm={4} >
-                    <Item key={product.id} product={product} />
-                </Grid>)}
-        </Grid>
-    )
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+
+import onAdd from '../../helpers/onAdd'
+
+const ItemList = ({ items }) => {
+  return (
+    <>
+      {items && (
+        <>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container>
+              <Grid item xs={12}>
+                <Typography
+                  align="right"
+                  color="text.secondary"
+                  gutterBottom
+                  paragraph
+                >
+                  {items.length} resultados
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid
+              container
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 4, sm: 8, md: 12 }}
+            >
+              {items.map((item) => {
+                return (
+                  <Grid item xs={4} sm={4} md={4} key={item.id}>
+                    <Item item={item} onAdd={onAdd} />
+                  </Grid>
+                )
+              })}
+            </Grid>
+          </Box>
+        </>
+      )}
+    </>
+  )
 }
 
 export default ItemList

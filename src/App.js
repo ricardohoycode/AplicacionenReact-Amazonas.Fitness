@@ -1,51 +1,44 @@
-import './App.css';
-import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import Footer from './components/Footer/Footer';
-import NavBar from './components/Navbar/Navbar'
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-//import { ThemeProvider } from './context/ThemeContext';
-import { CartProvider } from './context/CartContext';
+import CssBaseline from '@mui/material/CssBaseline'
+import Box from '@mui/material/Box'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
-import NotFound from './pages/NotFound';
-import ContactUs from './pages/Contact';
-import History from './pages/History'
-import JoinUs from './pages/JoinUs'
-import Cart from './pages/Cart';
-import { ThemeProvider } from 'styled-components';
+import Home from './pages/Home'
+import Cart from './pages/Cart'
+import Details from './pages/Details'
+import Category from './pages/Category'
+import Orders from './pages/Orders'
+import ContactUs from './pages/ContactUs';
+import NotFound from './pages/NotFound'
+
+import { Message } from './components/Cart/'
+
+import { CartProvider } from './context/CartContext'
 
 function App() {
-
   return (
-    
-  <CartProvider>
-    <ThemeProvider>
+    <CartProvider>
       <BrowserRouter>
-        <div className='content'>
-          <NavBar />
+        <CssBaseline />
+        <NavBar />
+        <Box>
           <Routes>
-            <Route path="/" element={<ItemListContainer />} />
-            <Route path="/category/:category" element={<ItemListContainer />} />
-            <Route path="/item/:id" element={<ItemDetailContainer />} />
-            <Route path="/contactanos" element={<ContactUs />} />
-            <Route path="/historia" element={<History />} />
-            <Route path="/unete" element={<JoinUs />} />
-            <Route path="/*" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/orders" element={<Orders />} />
             <Route path="/cart" element={<Cart />} />
-            {/* <Route path="/checkout" element={<Checkout />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/item/:slug" element={<Details />} />
+            <Route path="/category/:slug" element={<Category />} />
+            <Route path="/contactanos" element={<ContactUs />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
+        </Box>
         <Footer />
       </BrowserRouter>
-    </ThemeProvider>
-  </CartProvider>
-
-  );
+      <Message />
+    </CartProvider>
+  )
 }
 
-export default App;
+export default App
